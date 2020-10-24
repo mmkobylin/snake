@@ -1,7 +1,31 @@
 *, *::before, *::after {
     box-sizing: border-box;
+    color: #0f9d18;
     font-family: 'Orbitron', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: normal;
+}
+
+body {
+    background-color: #000;
+}
+
+.wall {
+    height: 2rem;
+    width: 2rem;
+    background-color:blue;
+}
+
+.space {
+    height: 2rem;
+    width: 2rem;
+    background-color: chartreuse;
+    border-radius: 5rem;
+}
+
+.snake {
+    height: 2rem;
+    width: 2rem;
+    background-color: yellow;
 }
 
 .button {
