@@ -35,18 +35,18 @@ body {
     background-color: yellow;
 }
 
-.button {
+button {
     background: transparent; 
     border: 2px solid #0f9d18;
     color: #FFFF;
     font-family: 'Press Start 2P', cursive;
     padding:2rem;
     margin:2rem;
-    width: fit-content;
+    width: 8rem;
 }
 
 /* Clicked effect (moves down slightly)  */
-.button:active, .button:hover{
+button:active, button:hover{
     background: #0000;
     border: 3px solid #0f9d18;
     box-shadow: 1px 1px 65px 12px rgba(43,102,3,0.66);
