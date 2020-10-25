@@ -9,6 +9,12 @@ body {
     background-color: #000;
 }
 
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 10rem;
+    width: 10rem;
+}
 .wall {
     height: 2rem;
     width: 2rem;
