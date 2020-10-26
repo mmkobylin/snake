@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,0,0,0,1,
+        1,0,0,0,0,0,2,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
         1,1,1,1,1,1,1,1,1,1
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (layout[i] === 0 ) {
                 squares[i].classList.add('space')
             } else if (layout[i] === 2) {
-                squares[i].classList.add('snake')
+                squares[i].classList.add('empty')
             }
         }
     };
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ((d) => {
 
+        let width = 10;
         let snakeIndex = 66; 
         squares[snakeIndex].classList.add('snake')
 
@@ -72,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buttonUp.addEventListener('click', () => {
             //if snake is not going to go into a wall, let it go
-            console.log('sun')
+            snakeIndex -=width;
+            console.log(snakeIndex)
         })
 
         let buttonDown = d.querySelector('[data-down]')

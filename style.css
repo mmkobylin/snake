@@ -40,6 +40,8 @@ body {
     height: 1rem;
     width: 1rem;
     background-color: yellow;
+    border-radius: 2rem;
+
 }
 
 button {
