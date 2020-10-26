@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //legend: 
     // 1 - wall
-    // 0 - space
+    // 0 - point
     // 2 - snake
 
     const layout = [
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
-        1,0,0,0,0,0,2,0,0,1,
+        1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
         1,0,0,0,0,0,0,0,0,1,
         1,1,1,1,1,1,1,1,1,1
@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const squares = [];
 
+
+    
+    const score = 0; 
 
     function createBoard() {
         //foreach function to append it to the squares
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (layout[i] === 1 ) {
                 squares[i].classList.add('wall')
             } else if (layout[i] === 0 ) {
-                squares[i].classList.add('space')
+                squares[i].classList.add('point')
             } else if (layout[i] === 2) {
                 squares[i].classList.add('empty')
             }
@@ -57,20 +60,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createBoard();
 
-
-    
+   
 
     //creating moving buttons:
     //making sure the site loads first 
 
     ((d) => {
 
+        let width = 10;
+        let snakeIndex = 64; 
+        squares[snakeIndex].classList.add('snake')
+        squares[snakeIndex].classList.remove('point')
+        
         function moveSnake() {
             //declare the variables
-            let width = 10;
-            let snakeIndex = 64; 
-            squares[snakeIndex].classList.add('snake')
-
             let buttonUp = d.getElementById('data-up')
             let buttonDown = d.querySelector('[data-down]')
             let buttonLeft = d.querySelector('[data-left]')
@@ -83,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares[snakeIndex].classList.add("empty");
 
                 snakeIndex -=1;
-                squares[snakeIndex].classList.remove("space", "empty");
+                squares[snakeIndex].classList.remove("point", "empty");
 
                 squares[snakeIndex].classList.add("snake");
 
@@ -99,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares[snakeIndex].classList.add("empty");
 
                 snakeIndex -=width;
-                squares[snakeIndex].classList.remove("space", "empty");
+                squares[snakeIndex].classList.remove("point", "empty");
 
                 squares[snakeIndex].classList.add("snake");
 
@@ -112,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares[snakeIndex].classList.add("empty");
 
                 snakeIndex +=width;
-                squares[snakeIndex].classList.remove("space", "empty");
+                squares[snakeIndex].classList.remove("point", "empty");
 
                 squares[snakeIndex].classList.add("snake");
 
@@ -121,19 +124,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
             buttonRight.addEventListener('click', () => {
                 if(!squares[snakeIndex +1].classList.contains('wall')){
-                    squares[snakeIndex].classList.remove('snake', 'space')
+                    squares[snakeIndex].classList.remove('snake', 'point')
                     squares[snakeIndex].classList.add('empty')
 
                     snakeIndex +=1;
-                    squares[snakeIndex].classList.remove('space', 'empty')
+                    squares[snakeIndex].classList.remove('point', 'empty')
                     squares[snakeIndex].classList.add('snake')
-
-                    console.log(snakeIndex);
                 }
             })
+          }
+
+        function pointEaten(){
+            if (squares[snakeIndex].classList.contains('point')){
+                score+=1
+                scoreDisplay.innerHTML = score
+                squares[snakeIndex].classList.remove('point')
+                console.log(score)
+            }
         }
-    
+        pointEaten(); 
+
         moveSnake();
+
         
     })(document);
 
