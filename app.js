@@ -64,12 +64,32 @@ document.addEventListener('DOMContentLoaded', () => {
     //making sure the site loads first 
 
     ((d) => {
-
+        //declare the variables
         let width = 10;
-        let snakeIndex = 66; 
+        let snakeIndex = 64; 
         squares[snakeIndex].classList.add('snake')
 
         let buttonUp = d.getElementById('data-up')
+        let buttonDown = d.querySelector('[data-down]')
+        let buttonLeft = d.querySelector('[data-left]')
+        let buttonRight = d.querySelector('[data-right]')
+
+        buttonLeft.addEventListener('click', () => {
+            //if snake is not going to go into a wall, let it go
+            if (!squares[snakeIndex - 1].classList.contains('wall')){
+            squares[snakeIndex].classList.remove("snake");
+            squares[snakeIndex].classList.add("empty");
+
+            snakeIndex -=1;
+            squares[snakeIndex].classList.remove("space", "empty");
+
+            squares[snakeIndex].classList.add("snake");
+
+            console.log(snakeIndex)
+            }
+        })
+
+
 
         buttonUp.addEventListener('click', () => {
             //if snake is not going to go into a wall, let it go
@@ -85,9 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(snakeIndex)
             }
         })
-
-        let buttonDown = d.querySelector('[data-down]')
-
         buttonDown.addEventListener('click', () => {
             if (!squares[snakeIndex + width].classList.contains('wall')){
 
@@ -102,6 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(snakeIndex)
             }
         })
+
+        buttonRight.addEventListener('click', () => {
+            if(!squares[snakeIndex +1].classList.contains('wall')){
+                squares[snakeIndex].classList.remove('snake', 'space')
+                squares[snakeIndex].classList.add('empty')
+
+                snakeIndex +=1;
+                squares[snakeIndex].classList.remove('space', 'empty')
+                squares[snakeIndex].classList.add('snake')
+
+                console.log(snakeIndex);
+            }
+        })
+
 
         
     })(document);
