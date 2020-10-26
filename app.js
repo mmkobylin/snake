@@ -64,76 +64,76 @@ document.addEventListener('DOMContentLoaded', () => {
     //making sure the site loads first 
 
     ((d) => {
-        //declare the variables
-        let width = 10;
-        let snakeIndex = 64; 
-        squares[snakeIndex].classList.add('snake')
 
-        let buttonUp = d.getElementById('data-up')
-        let buttonDown = d.querySelector('[data-down]')
-        let buttonLeft = d.querySelector('[data-left]')
-        let buttonRight = d.querySelector('[data-right]')
+        function moveSnake() {
+            //declare the variables
+            let width = 10;
+            let snakeIndex = 64; 
+            squares[snakeIndex].classList.add('snake')
 
-        buttonLeft.addEventListener('click', () => {
-            //if snake is not going to go into a wall, let it go
-            if (!squares[snakeIndex - 1].classList.contains('wall')){
-            squares[snakeIndex].classList.remove("snake");
-            squares[snakeIndex].classList.add("empty");
+            let buttonUp = d.getElementById('data-up')
+            let buttonDown = d.querySelector('[data-down]')
+            let buttonLeft = d.querySelector('[data-left]')
+            let buttonRight = d.querySelector('[data-right]')
 
-            snakeIndex -=1;
-            squares[snakeIndex].classList.remove("space", "empty");
+            buttonLeft.addEventListener('click', () => {
+                //if snake is not going to go into a wall, let it go
+                if (!squares[snakeIndex - 1].classList.contains('wall')){
+                squares[snakeIndex].classList.remove("snake");
+                squares[snakeIndex].classList.add("empty");
 
-            squares[snakeIndex].classList.add("snake");
+                snakeIndex -=1;
+                squares[snakeIndex].classList.remove("space", "empty");
 
-            console.log(snakeIndex)
-            }
-        })
+                squares[snakeIndex].classList.add("snake");
 
-
-
-        buttonUp.addEventListener('click', () => {
-            //if snake is not going to go into a wall, let it go
-            if (!squares[snakeIndex - width].classList.contains('wall')){
-            squares[snakeIndex].classList.remove("snake");
-            squares[snakeIndex].classList.add("empty");
-
-            snakeIndex -=width;
-            squares[snakeIndex].classList.remove("space", "empty");
-
-            squares[snakeIndex].classList.add("snake");
-
-            console.log(snakeIndex)
-            }
-        })
-        buttonDown.addEventListener('click', () => {
-            if (!squares[snakeIndex + width].classList.contains('wall')){
-
-            squares[snakeIndex].classList.remove("snake");
-            squares[snakeIndex].classList.add("empty");
-
-            snakeIndex +=width;
-            squares[snakeIndex].classList.remove("space", "empty");
-
-            squares[snakeIndex].classList.add("snake");
-
-            console.log(snakeIndex)
-            }
-        })
-
-        buttonRight.addEventListener('click', () => {
-            if(!squares[snakeIndex +1].classList.contains('wall')){
-                squares[snakeIndex].classList.remove('snake', 'space')
-                squares[snakeIndex].classList.add('empty')
-
-                snakeIndex +=1;
-                squares[snakeIndex].classList.remove('space', 'empty')
-                squares[snakeIndex].classList.add('snake')
-
-                console.log(snakeIndex);
-            }
-        })
+                }
+            })
 
 
+
+            buttonUp.addEventListener('click', () => {
+                //if snake is not going to go into a wall, let it go
+                if (!squares[snakeIndex - width].classList.contains('wall')){
+                squares[snakeIndex].classList.remove("snake");
+                squares[snakeIndex].classList.add("empty");
+
+                snakeIndex -=width;
+                squares[snakeIndex].classList.remove("space", "empty");
+
+                squares[snakeIndex].classList.add("snake");
+
+                }
+            })
+            buttonDown.addEventListener('click', () => {
+                if (!squares[snakeIndex + width].classList.contains('wall')){
+
+                squares[snakeIndex].classList.remove("snake");
+                squares[snakeIndex].classList.add("empty");
+
+                snakeIndex +=width;
+                squares[snakeIndex].classList.remove("space", "empty");
+
+                squares[snakeIndex].classList.add("snake");
+
+                }
+            })
+
+            buttonRight.addEventListener('click', () => {
+                if(!squares[snakeIndex +1].classList.contains('wall')){
+                    squares[snakeIndex].classList.remove('snake', 'space')
+                    squares[snakeIndex].classList.add('empty')
+
+                    snakeIndex +=1;
+                    squares[snakeIndex].classList.remove('space', 'empty')
+                    squares[snakeIndex].classList.add('snake')
+
+                    console.log(snakeIndex);
+                }
+            })
+        }
+    
+        moveSnake();
         
     })(document);
 
