@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // create a function to execute it
     // call the function 
   
-    const width = 5
+    const width = 10
 
     //legend: 
     // 1 - wall
@@ -52,9 +52,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 squares[i].classList.add('snake')
             }
         }
-        return console.log('BANANA')
-
     };
 
     createBoard();
+
+    //creating moving buttons:
+    //making sure the site loads first 
+
+    ((d) => {
+
+        let buttonUp = d.getElementById('data-up')
+
+        buttonUp.addEventListener('click', () => {
+            console.log('sun');
+        })
+
+        let buttonDown = d.querySelector('[data-down]')
+
+        buttonDown.addEventListener('click', () => {
+            console.log('moon')
+        })
+
+        
+    })(document);
+
+
 });
