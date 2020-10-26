@@ -73,25 +73,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         buttonUp.addEventListener('click', () => {
             //if snake is not going to go into a wall, let it go
+            if (!squares[snakeIndex - width].classList.contains('wall')){
             squares[snakeIndex].classList.remove("snake");
+            squares[snakeIndex].classList.add("empty");
+
             snakeIndex -=width;
-            squares[snakeIndex].classList.remove("space");
+            squares[snakeIndex].classList.remove("space", "empty");
 
             squares[snakeIndex].classList.add("snake");
 
             console.log(snakeIndex)
+            }
         })
 
         let buttonDown = d.querySelector('[data-down]')
 
         buttonDown.addEventListener('click', () => {
+            if (!squares[snakeIndex + width].classList.contains('wall')){
+
             squares[snakeIndex].classList.remove("snake");
+            squares[snakeIndex].classList.add("empty");
+
             snakeIndex +=width;
-            squares[snakeIndex].classList.remove("space");
+            squares[snakeIndex].classList.remove("space", "empty");
 
             squares[snakeIndex].classList.add("snake");
 
             console.log(snakeIndex)
+            }
         })
 
         
