@@ -59,6 +59,11 @@ button {
     width: 8rem;
 }
 
+#border {
+    height: 3rem;
+    width: 2rem;
+}
+
 /* Clicked effect (moves down slightly)  */
 button:active, button:hover{
     background: #0000;

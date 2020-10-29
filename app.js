@@ -146,8 +146,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         moveSnake();
 
-        
+        let show = d.getElementById("show");
+
+        // this is our state
+        // keep track of whether the show is blue or not
+        let blue = true;
+    
+        // every time the user clicks
+        show.addEventListener("click", () => {
+            // if blue then set to red, otherwise set to blue
+            show.style.opacity = blue ? "100" : "0";
+    
+            // switch the value of blue
+            blue = !blue;
+        });
     })(document);
 
+    console.log('chuj')
 
 });
