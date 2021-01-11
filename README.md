@@ -1,6 +1,6 @@
 # snake
 
-Very beginning of snake game, from scratch, no tutorials.
+Very beginning of snake game, from scratch.
 
 Technology used:
 

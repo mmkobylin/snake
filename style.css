@@ -10,77 +10,23 @@ body {
 }
 
 .grid {
+    border-style: solid;
     display: flex;
     flex-wrap: wrap;
-    height: 10rem;
-    width: 10rem;
+    height: 210px;
+    width: 208px;
 }
 
-.button-grid {
-    display: grid;
-    grid-template-columns: 40% 45%;
-    grid-template-rows: 1fr 1fr;
-}
-
-.wall {
-    height: 1rem;
-    width: 1rem;
-    background-color:blue;
-}
-
-.point {
-    height: 1rem;
-    width: 1rem;
-    background-color: chartreuse;
-    border-radius: 5rem;
-    border: 5px black solid;
+.grid div {
+    height: 20px;
+    width: 20px;
+    border:gray solid 1px;
 }
 
 .snake {
-    height: 1rem;
-    width: 1rem;
-    background-color: yellow;
-    border-radius: 2rem;
-
-}
-.empty {
-    height: 1rem;
-    width: 1rem;
-    background-color: black;
+    background: blue;
 }
 
-button {
-    background: transparent; 
-    border: 2px solid #0f9d18;
-    color: #FFFF;
-    font-family: 'Press Start 2P', cursive;
-    padding:2rem;
-    margin:2rem;
-    width: 8rem;
-}
-
-#border {
-    height: 3rem;
-    width: 2rem;
-}
-
-/* Clicked effect (moves down slightly)  */
-button:active, button:hover{
-    background: #0000;
-    border: 3px solid #0f9d18;
-    box-shadow: 1px 1px 65px 12px rgba(43,102,3,0.66);
-    color:#FFFF;
-    -moz-box-shadow: 1px 1px 65px 12px rgba(43,102,3,0.66);
-    transform: translateY(8px);
-    -webkit-box-shadow: 1px 1px 65px 12px rgba(43,102,3,0.66);
-}
-
-@media screen and (min-width:700px) {
-
-    .button-grid {
-        display: grid;
-        grid-template-columns: 10% 10%;
-        grid-template-rows: 1fr 1fr;
-    }
-
+.apple {
+    background: purple
 }
