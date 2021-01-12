@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function moveOutcomes() 
     {
-        squares[currentSnake[0]].classList.add('body')
+        squares[currentSnake[0]].classList.add('body', 'head')
 
         if (
                 // if snake hits bottom
