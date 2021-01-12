@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreDisplay = document.querySelector('span')
 
     const width = 10;
-    let currentIndex = 0 //first div in our grid
+    // let currentIndex = 0 //first div in our grid
     let appleIndex = 0 //ALSO first div
-    let currentSnake = [2,1,0] 
-    // div the grid of our snake is being 2, or the head
+    let currentSnake = [2,1,0]
+
+    // div the grid of our snake is being 2, or the body
 
     let direction = 1  
     let score = 0 
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         intervalTime = 1000 
         currentSnake = [ 2, 1, 0 ]
         currentIndex = 0 
-        currentSnake.forEach(index => squares[index].classList.add('snake'))
+        currentSnake.forEach(index => squares[index].classList.add('snake', 'body'))
         interval = setInterval( moveOutcomes, intervalTime )
     }
         
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function moveOutcomes() 
     {
-        squares[currentSnake[0]].classList.add('head')
+        squares[currentSnake[0]].classList.add('body')
 
         if (
                 // if snake hits bottom
@@ -64,13 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // function pop() removes the last item fro an array
             const tail = currentSnake.pop()
             // this one removes the snake item
-            squares[tail].classList.remove('snake', 'head')
+            squares[tail].classList.remove('snake', 'body')
             // unshift adds elements to the beginning of the array
             currentSnake.unshift(currentSnake[0] + direction)
 
             if ( squares[currentSnake[0]].classList.contains('apple')) {
                 squares[currentSnake[0]].classList.remove('apple')
-                squares[tail].classList.add('snake')
+                squares[tail].classList.add('snake', 'body')
                 currentSnake.push(tail)
                 randomApple()
                 score++

@@ -1,12 +1,18 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    color: #0f9d18;
+    color: #006466;
     font-family: 'Orbitron', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
     font-weight: normal;
+    text-align: center;
 }
 
 body {
     background-color: #000;
+}
+
+button {
+    margin: 2rem;
 }
 
 .grid {
@@ -20,17 +26,17 @@ body {
 .grid div {
     height: 30px;
     width: 30px;
-    border:gray solid 1px;
+    border:#75daf6 solid 1px;
 }
 
-.head {
-    opacity: 0.5;
+.body {
+    opacity: 0.8;
 }
 
 .snake {
-    background: blue;
+    background: #80ADA0;
 }
 
 .apple {
-    background: purple
+    background: #4D194D
 }
