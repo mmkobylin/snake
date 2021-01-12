@@ -2,7 +2,7 @@
     box-sizing: border-box;
     color: #006466;
     font-family: 'Orbitron', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: normal;
     text-align: center;
 }
@@ -17,16 +17,15 @@ button {
     background-position: right bottom;
     background-size: 200% 100%;
     transition: all 0.5s ease;
-    margin: 2rem;
-    
-    /* background: linear-gradient(to left, blue 50%, red 50% ); */
-
-
+    margin: 1rem 0;
 }
+
 
 button:hover {
     background-position: left bottom; 
     color:white;
+    border: solid white 2px; 
+    border-radius: 25px;
 }
 
 .grid {
@@ -43,6 +42,10 @@ button:hover {
     border:#75daf6 solid 1px;
 }
 
+.apple {
+    background: #4D194D
+}
+
 .body {
     opacity: 0.8;
 }
@@ -51,6 +54,12 @@ button:hover {
     background: #80ADA0;
 }
 
-.apple {
-    background: #4D194D
+span {
+    margin: 10%;
 }
+
+.score {
+    margin: 5%;
+}
+
+@mediaquery ()
