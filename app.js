@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         scoreDisplay.innerText = score 
     
-
         intervalTime = 1000 
         currentSnake = [ 2, 1, 0 ]
         currentIndex = 0 
@@ -40,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function moveOutcomes() 
     {
+        squares[currentSnake[0]].classList.add('head')
+
         if (
                 // if snake hits bottom
                 (currentSnake[0] + width >= ( width * width ) && direction === width ) ||
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // function pop() removes the last item fro an array
             const tail = currentSnake.pop()
             // this one removes the snake item
-            squares[tail].classList.remove('snake')
+            squares[tail].classList.remove('snake', 'head')
             // unshift adds elements to the beginning of the array
             currentSnake.unshift(currentSnake[0] + direction)
 
@@ -78,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 intervalTime = intervalTime * speed
                 interval = setInterval(moveOutcomes, intervalTime)
             }
+        
+
         squares[currentSnake[0]].classList.add('snake')
     }
 

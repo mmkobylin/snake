@@ -13,14 +13,18 @@ body {
     border-style: solid;
     display: flex;
     flex-wrap: wrap;
-    height: 210px;
-    width: 208px;
+    height: 306px;
+    width: 306px;
 }
 
 .grid div {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     border:gray solid 1px;
+}
+
+.head {
+    opacity: 0.5;
 }
 
 .snake {
